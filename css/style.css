@@ -667,7 +667,18 @@ body {
   overflow: hidden;
   background-color: #F0F0F0;
   min-height: 100vh;
-  padding: 0px 0px 120px 0px;
+}
+
+@supports (padding-top: clamp( 2.5rem , 0.2528089888rem  +  11.2359550562vw , 8.75rem )) {
+  .player {
+    padding-top: clamp( 2.5rem , 0.2528089888rem  +  11.2359550562vw , 8.75rem );
+  }
+}
+
+@supports not (padding-top: clamp( 2.5rem , 0.2528089888rem  +  11.2359550562vw , 8.75rem )) {
+  .player {
+    padding-top: calc(2.5rem + 6.25 * (100vw - 20rem) / 55.625);
+  }
 }
 
 @supports (padding-bottom: clamp( 2.5rem , 0.702247191rem  +  8.9887640449vw , 7.5rem )) {
@@ -687,18 +698,6 @@ body {
   background-color: rgba(240, 240, 240, 0.568627451);
   position: relative;
   z-index: 2;
-}
-
-@supports (padding-top: clamp( 2.5rem , 0.2528089888rem  +  11.2359550562vw , 8.75rem )) {
-  .player__body {
-    padding-top: clamp( 2.5rem , 0.2528089888rem  +  11.2359550562vw , 8.75rem );
-  }
-}
-
-@supports not (padding-top: clamp( 2.5rem , 0.2528089888rem  +  11.2359550562vw , 8.75rem )) {
-  .player__body {
-    padding-top: calc(2.5rem + 6.25 * (100vw - 20rem) / 55.625);
-  }
 }
 
 .player__title {
